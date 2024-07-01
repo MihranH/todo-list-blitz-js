@@ -1,3 +1,61 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "airbnb",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "import",
+    "prettier",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "prettier/prettier": ["warn"],
+    "no-unused-vars": "warn",
+    "react/react-in-jsx-scope": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": "off",
+    "react/jsx-filename-extension": "off",
+    "import/no-named-as-default": "off",
+    "import/no-named-as-default-member": "off",
+    "react/prop-types": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-console": "off",
+    "default-param-last": "off",
+    "no-undef": "off",
+    "no-unused-expressions": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/require-default-props": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-shadow": "off",
+    "jsx-a11y/control-has-associated-label": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }

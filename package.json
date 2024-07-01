@@ -1,5 +1,5 @@
 {
-  "name": "./",
+  "name": "todo-list-app",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -8,16 +8,20 @@
     "start": "blitz start",
     "studio": "blitz prisma studio",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
+    "fix-lint": "eslint --fix",
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format-prettier": "prettier --write ."
   },
   "prisma": {
     "schema": "db/schema.prisma"
   },
   "prettier": {
-    "semi": false,
-    "printWidth": 100
+    "singleQuote": true,
+    "semi": true,
+    "trailingComma": "all",
+    "jsxSingleQuote": true
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
@@ -28,6 +32,7 @@
     "@blitzjs/auth": "2.0.10",
     "@blitzjs/next": "2.0.10",
     "@blitzjs/rpc": "2.0.10",
+    "@heroicons/react": "1.0.6",
     "@prisma/client": "5.4.2",
     "blitz": "2.0.10",
     "formik": "2.4.6",
@@ -39,6 +44,7 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
+    "@blitz/eslint-plugin": "0.1.0",
     "@next/env": "13.4.19",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
@@ -47,18 +53,29 @@
     "@types/preview-email": "2.0.1",
     "@types/react": "18.0.25",
     "@typescript-eslint/eslint-plugin": "5.42.1",
+    "@typescript-eslint/parser": "7.14.1",
     "@vitejs/plugin-react": "2.2.0",
     "ajv": "^7.0.0",
-    "eslint": "8.27.0",
+    "autoprefixer": "10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "12.3.1",
-    "eslint-config-prettier": "8.5.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-react-hooks": "^4.6.2",
     "husky": "8.0.2",
     "jsdom": "20.0.3",
     "lint-staged": "13.0.3",
-    "prettier": "^2.7.1",
+    "postcss": "8.4.39",
+    "prettier": "^3.3.2",
+    "prettier-eslint": "16.3.0",
     "prettier-plugin-prisma": "4.4.0",
     "pretty-quick": "3.1.3",
     "preview-email": "3.0.7",
+    "tailwindcss": "3.4.4",
     "typescript": "^4.8.4",
     "vite-tsconfig-paths": "3.6.0",
     "vitest": "0.25.3"

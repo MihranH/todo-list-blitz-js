@@ -1,6 +1,6 @@
 // Note: This stays in the /pages folder for the time being
 
-import { rpcHandler } from "@blitzjs/rpc"
-import { api } from "src/app/blitz-server"
+import { rpcHandler } from '@blitzjs/rpc';
+import { api } from 'src/app/blitz-server';
 
-export default api(rpcHandler({ onError: (error, ctx) => console.log(error) }))
+export default api(rpcHandler({ onError: (error) => console.log(error) }));

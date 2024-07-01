@@ -1,57 +1,51 @@
-import { forwardRef, PropsWithoutRef } from "react"
-import { useField, useFormikContext, ErrorMessage } from "formik"
+import { forwardRef, PropsWithoutRef } from 'react';
+import { useField, useFormikContext, ErrorMessage } from 'formik';
 
-export interface LabeledTextFieldProps extends PropsWithoutRef<JSX.IntrinsicElements["input"]> {
+export interface LabeledTextFieldProps
+  extends PropsWithoutRef<JSX.IntrinsicElements['input']> {
   /** Field name. */
-  name: string
+  name: string;
   /** Field label. */
-  label: string
+  label: string;
   /** Field type. Doesn't include radio buttons and checkboxes */
-  type?: "text" | "password" | "email" | "number"
-  outerProps?: PropsWithoutRef<JSX.IntrinsicElements["div"]>
+  type?: 'text' | 'password' | 'email' | 'number';
+  outerProps?: PropsWithoutRef<JSX.IntrinsicElements['div']>;
 }
 
-export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldProps>(
-  ({ name, label, outerProps, ...props }, ref) => {
-    const [input] = useField(name)
-    const { isSubmitting } = useFormikContext()
+export const LabeledTextField = forwardRef<
+  HTMLInputElement,
+  LabeledTextFieldProps
+>(({ name, label, outerProps, ...props }, ref) => {
+  const [input] = useField(name);
+  const { isSubmitting } = useFormikContext();
 
-    return (
-      <div {...outerProps}>
-        <label>
-          {label}
-          <input {...input} disabled={isSubmitting} {...props} ref={ref} />
-        </label>
+  return (
+    <div {...outerProps}>
+      <label
+        className='block text-gray-700 text-sm font-bold mb-2'
+        htmlFor={name}
+      >
+        {label}
+        <input
+          {...input}
+          disabled={isSubmitting}
+          {...props}
+          ref={ref}
+          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+        />
+      </label>
 
-        <ErrorMessage name={name}>
-          {(msg) => (
-            <div role="alert" style={{ color: "red" }}>
-              {msg}
-            </div>
-          )}
-        </ErrorMessage>
+      <ErrorMessage name={name}>
+        {(msg) => (
+          <div role='alert' style={{ color: 'red' }}>
+            {msg}
+          </div>
+        )}
+      </ErrorMessage>
+    </div>
+  );
+});
 
-        <style jsx>{`
-          label {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            font-size: 1rem;
-          }
-          input {
-            font-size: 1rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 3px;
-            border: 1px solid purple;
-            appearance: none;
-            margin-top: 0.5rem;
-          }
-        `}</style>
-      </div>
-    )
-  }
-)
+LabeledTextField.displayName = 'LabeledTextField';
 
-LabeledTextField.displayName = "LabeledTextField"
-
-export default LabeledTextField
+export default LabeledTextField;
